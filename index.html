@@ -4,8 +4,20 @@
 	<title>angular-JavaScriptProjects</title>
 </head>
 <body>
+	<h2>JavaScript Projects</h2>
+	<!-- This <div> represents the place where partial pages or "views" are loaded. -->
+ 	<div ng-view></div>
 
-	<h1>I'm testing AngularJS and Firebase !</h1>
 
+	<!-- Load AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<!-- Load the Firebase JS SDK -->
+	<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+	<!-- Load the AngularJS bindings for Firebase -->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+
+    <!-- Load the controllers -->
+	<script src="project.js"></script>
 </body>
 </html>
