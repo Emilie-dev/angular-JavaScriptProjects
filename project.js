@@ -55,3 +55,14 @@ Firebase location from which data are loaded.
     	});
   	};
 })
+
+/*
+config() is to configure existing services.
+Here, $routeProvider for mapping URL paths to partials.
+*/
+.config(function($routeProvider) {
+	var resolveProjects = {
+    projects: function (Projects) {
+    	return Projects.fetch();
+    }
+};
