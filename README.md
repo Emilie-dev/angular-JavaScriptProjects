@@ -6,4 +6,4 @@
 * Discovering **AngularFire** library to wire up a **Firebase** backend
 * Discovering Firebase
 
-This todolist was created by following the [AngularJs' tutorial](https://angularjs.org/).
+This project was created by following the [AngularJs' tutorial](https://angularjs.org/).
