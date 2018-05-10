@@ -106,5 +106,27 @@ Here, $routeProvider for mapping URL paths to partials.
 		projects.$add(editProject.project).then(function(data) {
 			$location.path('/');
 		});
-	};
+	};	
 })
+
+// Create EditProjectController controller
+.controller('EditProjectController', function($location,$routeParams, projects) {
+	var editProject = this;
+	var projectId = $routeParams.projectId, projectIndex;
+
+	editProject.projects = projects;
+	projectIndex = editProject.projects.$indexFor(projectId);
+	editProject.project = editProject.projects[projectIndex];
+
+	editProject.destroy = function() {
+		editProject.projects.$remove(editProject.project).then(function(data) {
+			$location('/');
+		});
+	};
+
+	editProject.save = function() {
+		editProject.projects.$save(editProject.project).then(function(datat) {
+			$location('/');
+		});
+	};
+});
