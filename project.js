@@ -66,3 +66,29 @@ Here, $routeProvider for mapping URL paths to partials.
     	return Projects.fetch();
     }
 };
+
+	$routeProvider
+		// Load list.html into the view and the ProjectListController controller.
+		.when('/', {
+			controller:'ProjectListController as projectList',
+			templateUrl:'list.html',
+			resolve: resolveProjects
+		})
+		/* 
+		Here : make a component, EditProjectController can refer to
+		 the projectId property which tells which project is edited.
+		*/
+		.when('/edit/:projectId', {
+			controller:'EditProjectController as editProject',
+			templateUrl:'detail.html',
+			resolve: resolveProjects
+		})
+		.when('/new', {
+			controller:'NewProjectController as editProject',
+			templateUrl:'detail.html',
+			resolve: resolveProjects
+		})
+		.otherwise({
+			redirectTo:'/'
+		});
+})	
