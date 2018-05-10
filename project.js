@@ -92,3 +92,9 @@ Here, $routeProvider for mapping URL paths to partials.
 			redirectTo:'/'
 		});
 })	
+
+// Create ProjectListController
+.controller('ProjectListController', function(projects) {
+	var projectList = this;
+	projectList.projects = projects;
+})
