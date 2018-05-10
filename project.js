@@ -2,7 +2,7 @@
 Modules can depend on other modules.
 Here , project needs Firebase.
 */
-angular.module('project', ['Firebase'])
+angular.module('project', ['ngRoute','firebase'])
 
 /*
 Object that can be injected into controllers and services.
@@ -93,8 +93,18 @@ Here, $routeProvider for mapping URL paths to partials.
 		});
 })	
 
-// Create ProjectListController
+// Create ProjectListController controller
 .controller('ProjectListController', function(projects) {
 	var projectList = this;
 	projectList.projects = projects;
+})
+
+// Create NewProjectController controller
+.controller('NewProjectController', function($location, projects) {
+	var editProject = this;
+	editProject.save = function() {
+		projects.$add(editProject.project).then(function(data) {
+			$location.path('/');
+		});
+	};
 })
